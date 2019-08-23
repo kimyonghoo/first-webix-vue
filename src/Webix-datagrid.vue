@@ -18,15 +18,15 @@ export default{
           autoheight:true, 
           select:"row",
           scrollX:false,
-          on:{
-            "onItemClick":function(id, e, trg){
-              const record = $$("grid").getItem(id);
+          onClick:{
+            "addbtn":function(event, cell, target){
+              const record = $$("grid").getItem(cell.row);
               record['quantity'] = record.quantity +1;      
               $$("grid").refresh();
-              datagrid.__vue__.stock++
+              datagrid.__vue__.stock++;
               EventBus.$emit("use-eventbus", datagrid.__vue__.stock);
             }
-          }
+          },
       },
       stock:100,
     }
