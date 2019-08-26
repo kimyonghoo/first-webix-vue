@@ -1,26 +1,25 @@
 <template>
-  <div id="control">
     <div style='width:500px'>
         <fieldset>
-            <legend>Product</legend>
+            <legend><h2>ELETRONIC</h2></legend>
             <webix-text label='Product' v-model='product' @input="addEvent"/>
             <webix-datepicker label='Date' v-model='date' />
             <webix-slider label='Stock sum' v-model='stock' />
             <webix-text label='Stock sum' v-model='stock' />
         </fieldset>                                         
     </div>
-  </div> 
 </template>
 <script>
 require('vue-webix');
-import { EventBus } from "./event-bus";
+import { EventBus } from "../../event-bus";
 export default{
   name:'control',
   data () {
     return {
+      user:"",
       product:"ALL",
       date:new Date(),
-      stock:100,     
+      stock:0,     
     }
   },
   created() {

@@ -2,11 +2,13 @@
   <div id="datagrid">
     <h3>Products stock</h3>
     <webix-ui :config='ui' v-bind:value='data'/>
+    <div>
+    </div>
   </div> 
 </template>
 <script>
 require('vue-webix');
-import { EventBus } from "./event-bus";
+import { EventBus } from "../../event-bus";
 export default{
   name:'datagrid',
   data () {
