@@ -1,5 +1,5 @@
 <template>
-  <div id="datagrid">
+  <div id="datatable">
     <h3>Products stock</h3>
     <webix-ui :config='ui' v-bind:value='data'/>
     <div>
@@ -10,7 +10,7 @@
 require('vue-webix');
 import { EventBus } from "../../event-bus";
 export default{
-  name:'datagrid',
+  name:'datatable',
   data () {
     return {
       data:[],
@@ -25,8 +25,8 @@ export default{
               const record = $$("grid").getItem(cell.row);
               record['quantity'] = record.quantity +1;      
               $$("grid").refresh();
-              datagrid.__vue__.stock++;
-              EventBus.$emit("use-eventbus", datagrid.__vue__.stock);
+              datatable.__vue__.stock++;
+              EventBus.$emit("use-eventbus", datatable.__vue__.stock);
             }
           },
       },
