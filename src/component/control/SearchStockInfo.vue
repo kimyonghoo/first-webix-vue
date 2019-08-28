@@ -2,8 +2,8 @@
     <div style='width:500px'>
         <fieldset>
             <legend><h2>{{title}}</h2></legend>
-            <webix-text label='Product' v-model='product' @input="addEvent"/>
-            <webix-datepicker label='Date' v-model='date' />
+            <webix-ui :config='ui_text' v-model="product"/>
+            <webix-datepicker label='Date' v-model='date'/>
             <webix-slider label='Stock sum' v-model='stock' />
             <webix-text label='Stock sum' v-model='stock' />
         </fieldset>                                         
@@ -16,25 +16,22 @@ export default{
   name:'control',
   data () {
     return {
-      user:"",
       product:"ALL",
       date:new Date(),
       stock:0,
-      title:''  
+      title:'',
+      ui_text:{ id:"product", view:"text", label:"Product", keyPressTimeout:0.1}  
     }
   },
-  created() {
-    this.title = this.$route.params.category.toUpperCase();
+  mounted() {
+    $$("product").attachEvent("onTimedKeyPress", function(code, e){
+      EventBus.$emit("filter-bus",this.getValue());
+    });
+
     EventBus.$on("use-eventbus", stock => {
       this.stock = stock;
     });
+    this.title = this.$route.params.category.toUpperCase();
   },
-  mounted() {
-  },
-  methods: { 
-    addEvent: function (value) {
-      EventBus.$emit("filter-bus", value);
-    }
-  }
 }
 </script>
