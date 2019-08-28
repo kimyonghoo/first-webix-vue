@@ -1,7 +1,7 @@
 <template>
     <div style='width:500px'>
         <fieldset>
-            <legend><h2>Seller</h2></legend>
+            <legend><h2>Seller Information</h2></legend>
             <webix-text label='Last name' v-model='lname' @input="addEvent"/>
             <webix-text label='First name' v-model='fname' @input="addEvent"/>
             <webix-text label='Company' v-model='company' @input="addEvent"/>
