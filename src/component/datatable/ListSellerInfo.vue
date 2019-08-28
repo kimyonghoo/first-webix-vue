@@ -24,7 +24,7 @@ export default{
     }
   },
   created() {
-         fetch('https://api.myjson.com/bins/gjv1b')
+    fetch('https://api.myjson.com/bins/gjv1b')
     .then(response=>response.json())
     .then(json=>{
       this.data = json.data;

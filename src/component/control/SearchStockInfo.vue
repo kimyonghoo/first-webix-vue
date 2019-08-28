@@ -1,7 +1,7 @@
 <template>
     <div style='width:500px'>
         <fieldset>
-            <legend><h2>APPAREL</h2></legend>
+            <legend><h2>{{title}}</h2></legend>
             <webix-text label='Product' v-model='product' @input="addEvent"/>
             <webix-datepicker label='Date' v-model='date' />
             <webix-slider label='Stock sum' v-model='stock' />
@@ -19,10 +19,12 @@ export default{
       user:"",
       product:"ALL",
       date:new Date(),
-      stock:0,     
+      stock:0,
+      title:''  
     }
   },
   created() {
+    this.title = this.$route.params.category.toUpperCase();
     EventBus.$on("use-eventbus", stock => {
       this.stock = stock;
     });

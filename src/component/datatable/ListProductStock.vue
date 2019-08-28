@@ -34,7 +34,18 @@ export default{
     }
   },
   created() {
-         fetch('https://api.myjson.com/bins/10uhcn')
+    let dataUrl = '';
+    switch (this.$route.params.category) {
+      case 'electronic':
+        dataUrl = 'https://api.myjson.com/bins/134quj';
+        break;
+      case 'apperal':
+        dataUrl = 'https://api.myjson.com/bins/10uhcn';
+        break;
+      default:
+        break;
+    }
+    fetch(dataUrl)
     .then(response=>response.json())
     .then(json=>{
       this.data = json.data;
