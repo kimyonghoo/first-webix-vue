@@ -21,11 +21,19 @@ export default{
           select:"row",
           scrollX:false,
           onClick:{
-            "addbtn":function(event, cell, target){
-              const record = $$("grid").getItem(cell.row);
+            "plusbtn":function(event, cell, target){
+              const record = this.getItem(cell.row);
               record['quantity'] = record.quantity +1;      
-              $$("grid").refresh();
+              this.refresh();
               datatable.__vue__.stock++;
+              EventBus.$emit("use-eventbus", datatable.__vue__.stock);
+            },
+            "minusbtn":function(event, cell, target){
+              const record = this.getItem(cell.row);
+              if(record.quantity <= 0) return;
+              record['quantity'] = record.quantity -1;      
+              this.refresh();
+              datatable.__vue__.stock--;
               EventBus.$emit("use-eventbus", datatable.__vue__.stock);
             }
           },
@@ -37,10 +45,10 @@ export default{
     let dataUrl = '';
     switch (this.$route.params.category) {
       case 'electronic':
-        dataUrl = 'https://api.myjson.com/bins/134quj';
+        dataUrl = 'https://api.myjson.com/bins/6dhzr';
         break;
       case 'apperal':
-        dataUrl = 'https://api.myjson.com/bins/10uhcn';
+        dataUrl = 'https://api.myjson.com/bins/1cpf3r';
         break;
       default:
         break;
@@ -65,3 +73,12 @@ export default{
   },
 }
 </script>
+<style>
+.plusbtn, .minusbtn{
+  background-color: #1CA1C1;
+  color: #ffffff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+</style>
