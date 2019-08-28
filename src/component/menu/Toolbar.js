@@ -6,5 +6,5 @@ export default {
       {},
       { view: "icon", icon: "mdi mdi-comment",  badge:4},
       { view: "icon", icon: "mdi mdi-bell",  badge:10}
-  ]
+  ],
 }
