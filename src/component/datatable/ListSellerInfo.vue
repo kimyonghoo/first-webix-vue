@@ -1,6 +1,6 @@
 <template>
   <div id="datatable">
-    <h3>Seller information</h3>
+    <h3>Seller List</h3>
     <webix-ui :config='ui' v-bind:value='data'/>
     <div>
     </div>
