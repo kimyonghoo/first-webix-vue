@@ -16,7 +16,16 @@ export default{
       data:[],
       ui:{
           id:"grid",
-          view:"datatable", 
+          view:"datatable",
+          columns:[
+            {id:"id",header:"ID",fillspace:"1"},
+            {id:"lastname",header:"Last Name",fillspace:"2"},
+            {id:"firstname",header:"First Name",fillspace:"3"},
+            {id:"registnumber",header:"Registration #",fillspace:"3"},
+            {id:"company",header:"Company",fillspace:"3"},
+            {id:"category",header:"Category",fillspace:"3"},
+            {id:"address",header:"Address",fillspace:"5"}
+          ],
           autoheight:true, 
           select:"row",
           scrollX:false,
@@ -28,8 +37,6 @@ export default{
     .then(response=>response.json())
     .then(json=>{
       this.data = json.data;
-      $$("grid").config.columns = json.colInfo;
-      $$("grid").refreshColumns();
       $$("grid").attachEvent("onItemClick", function(id, e, node){
           var item = this.getItem(id);
           EventBus.$emit("use-eventbus", item);

@@ -16,7 +16,13 @@ export default{
       data:[],
       ui:{
           id:"grid",
-          view:"datatable", 
+          view:"datatable",
+          columns:[
+            {id:"id",header:"ID",fillspace:"1"},
+            {id:"quantity",header:"Quantity",template:"<input class='minusbtn' type='button' value='-'>\t#quantity#\t<input class='plusbtn' type='button' value='+'>",fillspace:"2"},
+            {id:"name",header:"Name",fillspace:"3"},
+            {id:"image",header:"Image",fillspace:"3"}
+          ],
           autoheight:true, 
           select:"row",
           scrollX:false,
@@ -38,7 +44,6 @@ export default{
             }
           },
       },
-      stock:100,
     }
   },
   created() {
@@ -57,9 +62,6 @@ export default{
     .then(response=>response.json())
     .then(json=>{
       this.data = json.data;
-      $$("grid").config.columns = json.colInfo;
-      $$("grid").refreshColumns();
-
       this.stock = json.data.reduce((sum, product) => {
         return sum + product.quantity;
       }, 0)
@@ -70,6 +72,7 @@ export default{
         $$("grid").filter('#name#', product);
     });
     })
+    
   },
 }
 </script>
