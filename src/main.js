@@ -19,7 +19,7 @@ webix.ui({
                 {
                     view: "template",
                     template: "<div id='btnArea'></div>",
-                    autoheight:true,
+                    height:50,
                 }
             ]
             },
@@ -28,6 +28,10 @@ webix.ui({
             },
         ]},
     ]
+});
+
+webix.event(window, "resize", function(e){
+    $$("btnToolbar").resize();
 });
 
 new Vue({
