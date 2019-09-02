@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Main from '../component/Main.vue'
 import StockManagement from '../component/screen/ManageProductStock.vue'
 import SellerManagement from '../component/screen/ManageSeller.vue'
+import WarehouseManagement from '../component/screen/ManageWarehouse.vue'
 import StockManagementFooter from '../component/footer/StockManagementFooter.vue'
 import SellerManagementFooter from '../component/footer/SellerManagementFooter.vue'
 
@@ -20,6 +21,9 @@ const router = new VueRouter({
       { path: '/sellermanagement', components: {
         default: SellerManagement,
         btnArea: SellerManagementFooter,
+      }},
+      { path: '/warehousemanagement', components: {
+        default: WarehouseManagement,
       }}
     ]
   })

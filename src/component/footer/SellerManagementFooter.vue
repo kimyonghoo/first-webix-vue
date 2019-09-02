@@ -13,7 +13,7 @@ export default{
           borderless: true,
           elements: [
               {},
-              { view:"button", value:"Search" , width:100, css:"webix_primary" },
+              { view:"button", id:"btnR", value:"Search" , width:100, css:"webix_primary"},
           ],
       }
     }
@@ -21,6 +21,9 @@ export default{
   created() {
   },
   mounted() {
+    $$("btnR").attachEvent("onItemClick", function(id){
+      webix.message("Selected: "+id);
+    });
   },
   methods: { 
   }

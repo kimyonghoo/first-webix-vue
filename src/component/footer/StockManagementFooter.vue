@@ -13,19 +13,27 @@ export default{
           borderless: true,
           elements: [
               {},
-              { view:"button", value:"Search" , width:100, css:"webix_primary" },
-              { view:"button", value:"Save", width:100},
-              { view:"button", value:"Delete", width:100},
-              { view:"button", value:"Update", width:100}
+              { view:"button", id:"btnR", value:"Search" , width:100, css:"webix_primary" },
+              { view:"button", id:"btnC", value:"Save", width:100},
+              { view:"button", id:"btnD", value:"Delete", width:100},
+              { view:"button", id:"btnU", value:"Update", width:100}
           ],
       }
     }
   },
-  created() {
-  },
   mounted() {
+    $$("btnR").attachEvent("onItemClick", function(id){
+      webix.message("Selected: "+id);
+    });
+    $$("btnC").attachEvent("onItemClick", function(id){
+      webix.message("Selected: "+id);
+    });
+    $$("btnD").attachEvent("onItemClick", function(id){
+      webix.message("Selected: "+id);
+    });
+    $$("btnU").attachEvent("onItemClick", function(id){
+      webix.message("Selected: "+id);
+    });
   },
-  methods: { 
-  }
 }
 </script>
