@@ -2,7 +2,6 @@
   <div id='btnArea'><webix-ui :config='ui'/></div>
 </template>
 <script>
-require('vue-webix');
 export default{
   name:'Buttons',
   data () {

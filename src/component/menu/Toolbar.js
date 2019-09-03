@@ -1,4 +1,5 @@
 export default {
+  id:"topBar",
   css:"webix_dark",
   view: "toolbar", 
   elements: [

@@ -2,7 +2,6 @@
     <webix-ui :config='ui' v-bind:value='data'/>
 </template>
 <script>
-require('vue-webix');
 export default{
   name:'PrimaryButton',
   data () {

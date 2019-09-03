@@ -7,7 +7,6 @@
   </div> 
 </template>
 <script>
-require('vue-webix');
 import { EventBus } from "../../event-bus";
 export default{
   name:'datatable',

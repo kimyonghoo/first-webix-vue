@@ -7,7 +7,6 @@
   </div> 
 </template>
 <script>
-require('vue-webix');
 import { EventBus } from "../../event-bus";
 export default{
   name:'datatable',
@@ -70,10 +69,17 @@ export default{
       EventBus.$on("filter-bus", product => {
         if(product === "ALL") product = '';
         $$("grid").filter('#name#', product);
+      });
     });
-    })
+
+    webix.event(window, "resize", function(e){
+      $$("grid").resize();
+    });
     
   },
+  destroyed() {
+    window.removeEventListener('resize', this.handleResize)
+  }
 }
 </script>
 <style>
