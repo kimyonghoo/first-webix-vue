@@ -2,8 +2,6 @@
   <div id="datatable">
     <h3>Products stock</h3>
     <webix-ui :config='ui' v-bind:value='data'/>
-    <div>
-    </div>
   </div> 
 </template>
 <script>

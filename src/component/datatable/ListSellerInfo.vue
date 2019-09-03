@@ -41,6 +41,13 @@ export default{
           EventBus.$emit("use-eventbus", item);
       });
     })
+
+    webix.event(window, "resize", function(e){
+      $$("grid").resize();
+    });
   },
+  destroyed() {
+    window.removeEventListener('resize', this.handleResize)
+  }
 }
 </script>

@@ -5,6 +5,10 @@ const sidebar = {
   view: "sidebar",
   collapsed: true,
   position: "right",
+  data: (function () {
+    var xhr = webix.ajax().sync().get("https://api.myjson.com/bins/vw24j");
+    return JSON.parse(xhr.responseText).gnb;
+  })(),
   on:{
     onAfterSelect: function(id){
       let routePath = [];
@@ -17,9 +21,4 @@ const sidebar = {
   },
 };
 
-webix.ajax("https://api.myjson.com/bins/vw24j").then(function(data){
-  sidebar.data = data.json().gnb;
-  
-});
-
-export default sidebar;
+export default sidebar

@@ -16,8 +16,9 @@ export default {
     return {
       data: "B",
       ui: {
-        view: "combo",
         id: "webix-combo",
+        view: "combo",
+        label: "Component",
         options: [
           { id: "T", value: "Tiger" },
           { id: "L", value: "Lion" },

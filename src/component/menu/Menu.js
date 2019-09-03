@@ -6,7 +6,8 @@ export default {
       view: "icon",
       icon: "mdi mdi-menu",
       click: function(){
-        $$("$sidebar1").toggle()
+        $$("$sidebar1").toggle();
+        $$("btnToolbar").resize();
       }
     }
   ]

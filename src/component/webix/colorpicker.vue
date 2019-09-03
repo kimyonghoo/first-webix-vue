@@ -16,9 +16,9 @@ export default {
     return {
       data: "#0EFEFE",
       ui: {
-        label: "Colorpicker",
         id: "webix-color",
         view: "colorpicker",
+        label: "Component",
         on: {
           onChange: function(newv, oldv) {
             webix.message("Value changed from: " + oldv + " to: " + newv);

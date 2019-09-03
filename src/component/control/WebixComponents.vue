@@ -6,6 +6,7 @@ import colorpicker from '../webix/colorpicker.vue'
 import calendar from '../webix/calendar.vue'
 import selectbox from '../webix/selectbox.vue'
 import combo from '../webix/combo.vue'
+import popup from '../webix/popup.vue'
 export default{
   name:'control',
   data () {
@@ -20,7 +21,8 @@ export default{
     colorpicker,
     selectbox,
     calendar,
-    combo
+    combo,
+    popup
   },
 }
 </script>

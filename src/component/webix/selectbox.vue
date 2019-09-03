@@ -18,6 +18,7 @@ export default {
       ui: {
         id: "webix-select",
         view: "select",
+        label: "Component",
         options: [
           { id: "T", value: "Tiger" },
           { id: "L", value: "Lion" },
